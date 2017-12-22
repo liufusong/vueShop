@@ -18,7 +18,8 @@ module.exports = {
         { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }, //配置处理 .less 文件的第三方 loader 规则
         { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }, // 配置处理 .scss 文件的 第三方 loader 规则
         { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
-        { test: /\.vue$/, use: 'vue-loader' }
+        { test: /\.vue$/, use: 'vue-loader' },
+        { test: /\.(png|jpg|gif|ttf)$/, use: 'url-loader?limit=43960' }
       ]
     }
 }
