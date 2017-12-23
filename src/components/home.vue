@@ -72,8 +72,8 @@ img{
   border: none;
 }
 .mui-table-view li span{
-  width:70px;
-  height:70px;
+  width:50px;
+  height:50px;
   display:block;
   background-repeat: round;
   margin:auto;

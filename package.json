@@ -3,9 +3,11 @@
     "dev": "webpack-dev-server --hot --port 4321 --open"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "jquery": "^3.2.1",
     "mint-ui": "^2.2.13",
     "vue": "^2.5.13",
+    "vue-resource": "^1.3.5",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

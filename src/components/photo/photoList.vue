@@ -29,12 +29,18 @@
 </template>
 <script>
 import mui from '../../lib/mui/js/mui.min.js'
+// import axios from 'axios'
 export default {
   data(){
       return{};
   },
   methods:{
-
+      getPhotoList(){
+          console.log(this.$axios)
+      }
+  },
+  created(){
+      this.getPhotoList()
   },
   mounted(){
       // 需要在组件的 mounted 事件钩子中，注册 mui 的 scroll 滚动事件
