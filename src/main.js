@@ -18,6 +18,8 @@ Vue.use(mintUi)
 Vue.use(vueResource)
 
 
+Vue.http.options.root = "http://vue.studyit.io"
+
 import router from './router.js'
 
 new Vue({
