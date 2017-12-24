@@ -8,6 +8,7 @@
                        data-wid="tab-top-subpage-1.html"
                        v-for="(item,index) in cateGory"
                        :key="index"
+                       @click="getImglist(id=item.id)"
                        >
                         {{item.title}}
                     </a>
@@ -45,7 +46,8 @@ export default {
               console.log(this.cateGory)
           });
       },
-      getImglist(){
+      getImglist(id){
+         
           this.$http.get('api/getimages/'+this.id).then(function(res){
               this.imgList = res.body.message
               console.log(this.imgList)
