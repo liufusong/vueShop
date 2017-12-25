@@ -18,11 +18,14 @@
         <div class="mui-card" v-for="item in imgList" :key="item.id">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
+                       
                         <div style="width:100%;height:100%;position:relative;">
-                            <img v-lazy="item.img_url" alt="">
-                            <p class="mui-ellipsis-2">{{item.zhaiyao}}</p>
+                            <router-link :to="'photo/photoInfo/'+item.id">
+                                <img v-lazy="item.img_url" alt="">
+                                <p class="mui-ellipsis-2">{{item.zhaiyao}}</p>
+                            </router-link>	
                         </div>
-						
+                        
 					</div>
 				</div>
 		</div>

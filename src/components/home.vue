@@ -25,10 +25,10 @@
                     </router-link>
                 </li> 
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="/shop/shoplist">
                           <span></span>
-                          <div class="mui-media-body">Message</div>
-                    </a>
+                          <div class="mui-media-body">shopping</div>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                     <a href="#">

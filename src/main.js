@@ -2,6 +2,9 @@ import App from './App.vue'
 import Vue from 'vue'
 import vueRouter from 'vue-router'
 import vueResource from 'vue-resource';
+import VuePreview from 'vue-preview'
+import vuex from 'vuex'
+
 // import axios from 'axios'
 
 import mintUi from 'mint-ui'
@@ -14,8 +17,16 @@ import './lib/mui/css/icons-extra(1).css'
 // Vue.prototype.$axios = {
 //     axios
 // }
+Vue.use(VuePreview)
 Vue.use(mintUi)
 Vue.use(vueResource)
+Vue.use(vuex)
+
+
+const store = new vuex.Store({
+    state:[]
+})
+
 
 
 Vue.http.options.root = "http://vue.studyit.io"

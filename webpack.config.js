@@ -19,7 +19,8 @@ module.exports = {
         { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }, // 配置处理 .scss 文件的 第三方 loader 规则
         { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.vue$/, use: 'vue-loader' },
-        { test: /\.(png|jpg|gif|ttf)$/, use: 'url-loader?limit=43960' }
+        { test: /\.(png|jpg|gif|ttf|svg)$/, use: 'url-loader?limit=43960' },
+        {test: /vue-preview.src.*?js$/,loader: 'babel-loader'}
       ]
     }
 }
