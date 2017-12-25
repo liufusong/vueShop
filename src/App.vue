@@ -13,7 +13,7 @@
         </router-link>
         <router-link class="mui-tab-item1" to="/shopCar">
           <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-            <span class="mui-badge">9</span>
+            <span class="mui-badge">{{this.$store.getters.getNum}}</span>
           </span>
           <span class="mui-tab-label">shopCar</span>
         </router-link>
@@ -26,7 +26,9 @@
 </template>
 <script>
 export default {
-  
+  created(){
+     console.log()
+  }
 }
 </script>
 

@@ -19,12 +19,12 @@
                        <span>销售价：{{info.sell_price}}</span>
                    </div>
                    <div>
-                       购买数量：<num :num="info.stock_quantity"></num>
+                       购买数量：<num :num2="info.stock_quantity" @getNum="count"></num>
 
                    </div>
                    <div>
                        <button type="button" class="mui-btn mui-btn-danger">立即购买</button>
-                       <span class="mui-btn mui-btn-success">加入购物车</span>
+                       <span @click="addCar" class="mui-btn mui-btn-success">加入购物车</span>
                    </div>
                 </div>
             </div>
@@ -50,7 +50,8 @@ export default {
         return {
             imglist:[],
             info:{},
-            id:''
+            id:'',
+            num:1
         }
     },
     created(){
@@ -68,6 +69,16 @@ export default {
             this.$http.get('api/goods/getinfo/'+this.id).then(function(res){
                 this.info = res.body.message[0]
             })
+        },
+        count(c){
+            this.num = c
+        },
+        addCar(){
+            var obj = {};
+           
+            obj.num = this.num;
+            obj.id = this.id;
+            this.$store.commit('addCar',obj)
         }
     },
     components:{

@@ -24,7 +24,34 @@ Vue.use(vuex)
 
 
 const store = new vuex.Store({
-    state:[]
+    state:{
+        shopping:[]
+    },
+    mutations:{
+        addCar(state,goodsInfo){
+            var flag = true;            
+            state.shopping.some(item=>{
+                if(item.id==goodsInfo.id){
+                    item.num = (item.num-0)+(goodsInfo.num-0)
+                    flag = false
+                    return
+                }
+            })
+
+            if(flag){
+                state.shopping.push(goodsInfo)
+            }
+        }
+    },
+    getters:{
+        getNum(state){
+            var count = 0;
+            state.shopping.forEach(item=>{
+                count+=(item.num-0)
+            })
+            return count
+        }
+    }
 })
 
 
@@ -37,5 +64,6 @@ new Vue({
     el:'#app',
     render:c=>c(App),
     router,
+    store
 })
 
