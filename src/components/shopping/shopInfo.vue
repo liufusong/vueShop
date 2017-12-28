@@ -18,9 +18,15 @@
                        <span>市场价：<s>{{info.market_price}}</s></span>
                        <span>销售价：{{info.sell_price}}</span>
                    </div>
-                   <div>
+                   <div style="position:relative;">
                        购买数量：<num :num2="info.stock_quantity" @getNum="count"></num>
-
+                       <transition name="show"
+                       @beforeEnter="beforeEnter"
+                       @enter="enter"
+                       @afterEnter="afterEnter"
+                       >
+                           <div v-show="ball" class="ball"></div>
+                       </transition>                       
                    </div>
                    <div>
                        <button type="button" class="mui-btn mui-btn-danger">立即购买</button>
@@ -51,7 +57,9 @@ export default {
             imglist:[],
             info:{},
             id:'',
-            num:1
+            num:1,
+            ball:false,
+            price:0
         }
     },
     created(){
@@ -68,6 +76,7 @@ export default {
         getInfo(){
             this.$http.get('api/goods/getinfo/'+this.id).then(function(res){
                 this.info = res.body.message[0]
+                this.price = this.info.sell_price
             })
         },
         count(c){
@@ -78,7 +87,32 @@ export default {
            
             obj.num = this.num;
             obj.id = this.id;
+            obj.select = true;
+            obj.price = this.price;
+            console.log(obj)
             this.$store.commit('addCar',obj)
+
+            this.ball = !this.ball
+
+        },
+        beforeEnter(el){
+            
+            
+            el.style.transform="translate(0px,0px)"
+        },
+        enter(el,done){
+            var zl = document.querySelector('.mui-badge').getBoundingClientRect().left;
+            var zt = document.querySelector('.mui-badge').getBoundingClientRect().top;
+            var elT = el.getBoundingClientRect().top;
+            var elL = el.getBoundingClientRect().left;
+            var x = zl - elL;
+            var y = zt - elT;
+            el.offsetWidth
+            el.style.transform="translate("+x+"px,"+y+"px)"
+            done()
+        },
+        afterEnter(){
+            this.ball = !this.ball
         }
     },
     components:{
@@ -95,6 +129,9 @@ img{
   height: 100%;
   margin: auto;
 }
+.mui-card{
+    overflow: initial;
+}
 .mui-card-content-inner h4{
     color: #26a2ff;
     line-height:25px;
@@ -106,6 +143,17 @@ img{
 }
 .mint-swipe-indicator{
     background: #26a2ff;
+}
+.ball{
+    position: absolute;
+    top:9px;
+    left: 132px;
+    background: red;
+    width:16px;
+    height: 16px;
+    border-radius:20px;
+transition: all 1s linear;
+z-index: 99999999999;
 }
 </style>
 

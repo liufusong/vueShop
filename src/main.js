@@ -5,6 +5,8 @@ import vueResource from 'vue-resource';
 import VuePreview from 'vue-preview'
 import vuex from 'vuex'
 
+import store from './js/store'
+
 // import axios from 'axios'
 
 import mintUi from 'mint-ui'
@@ -20,39 +22,9 @@ import './lib/mui/css/icons-extra(1).css'
 Vue.use(VuePreview)
 Vue.use(mintUi)
 Vue.use(vueResource)
-Vue.use(vuex)
 
 
-const store = new vuex.Store({
-    state:{
-        shopping:[]
-    },
-    mutations:{
-        addCar(state,goodsInfo){
-            var flag = true;            
-            state.shopping.some(item=>{
-                if(item.id==goodsInfo.id){
-                    item.num = (item.num-0)+(goodsInfo.num-0)
-                    flag = false
-                    return
-                }
-            })
 
-            if(flag){
-                state.shopping.push(goodsInfo)
-            }
-        }
-    },
-    getters:{
-        getNum(state){
-            var count = 0;
-            state.shopping.forEach(item=>{
-                count+=(item.num-0)
-            })
-            return count
-        }
-    }
-})
 
 
 

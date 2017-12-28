@@ -11,7 +11,7 @@
           <span class="mui-icon mui-icon-email"></span>
           <span class="mui-tab-label">Message</span>
         </router-link>
-        <router-link class="mui-tab-item1" to="/shopCar">
+        <router-link class="mui-tab-item1" to="/shopCar/shopCarlist">
           <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
             <span class="mui-badge">{{this.$store.getters.getNum}}</span>
           </span>

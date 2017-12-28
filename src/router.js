@@ -5,6 +5,7 @@ import photoList from './components/photo/photoList.vue'
 import photoInfo from './components/photo/photoInfo.vue'
 import shoplist from './components/shopping/shoplist.vue'
 import shopInfo from './components/shopping/shopInfo.vue'
+import shopCarList from './components/shopping/shopcarList.vue'
 
 Vue.use(vueRouter)
 const router = new vueRouter({
@@ -14,7 +15,8 @@ const router = new vueRouter({
         {path:'/photoList',component:photoList},
         {path:'/photo/photoInfo/:id',component:photoInfo},
         {path:'/shop/shoplist',component:shoplist},
-        {path:'/shop/shopInfo/:id',component:shopInfo,name:'shopInfo'}
+        {path:'/shop/shopInfo/:id',component:shopInfo,name:'shopInfo'},
+        {path:'/shopCar/shopCarlist',component:shopCarList}
     ],
     linkActiveClass: 'mui-active'
 })
